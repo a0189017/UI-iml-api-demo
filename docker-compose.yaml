@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: root
+    restart: always
+    volumes:
+      - ./docker-pg-init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+  backend:
+    image: 'ui-assignment'
+    container_name: 'ui-assignment'
+    build: ./
+    restart: always
+    ports:
+    - "3000:3000"
+    depends_on:
+      - postgres

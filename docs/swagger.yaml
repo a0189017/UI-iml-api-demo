@@ -1,0 +1,211 @@
+host: localhost:3000
+info:
+  contact: {}
+  description: mux swagger
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: mux swagger
+  version: "2.0"
+paths:
+  /api/userDel:
+    delete:
+      description: 使用者刪除
+      operationId: "6"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: userDel
+      tags:
+      - userDel
+  /api/userDetail:
+    get:
+      description: 取得使用者資訊
+      operationId: "3"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: UserDetail
+      tags:
+      - UserInfo
+  /api/userList/{page}:
+    get:
+      description: 取得使用者列表
+      operationId: "2"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: path
+        name: page
+        required: true
+        type: integer
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: userList
+      tags:
+      - UserInfo
+  /api/userSearch/{key}:
+    get:
+      description: 搜尋使用者
+      operationId: "4"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: key
+        in: path
+        name: key
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: userSearch
+      tags:
+      - UserInfo
+  /api/userSignin:
+    post:
+      description: 使用者登入
+      operationId: "1"
+      parameters:
+      - description: acct
+        in: formData
+        name: acct
+        required: true
+        type: string
+      - description: pwd
+        in: formData
+        name: pwd
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            type: string
+      summary: userSignin
+      tags:
+      - Signin/Signup
+  /api/userSignup:
+    post:
+      description: 使用者註冊
+      operationId: "5"
+      parameters:
+      - description: acct
+        in: formData
+        name: acct
+        required: true
+        type: string
+      - description: pwd
+        in: formData
+        name: pwd
+        required: true
+        type: string
+      - description: fullname
+        in: formData
+        name: fullname
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            type: string
+      summary: userSignup
+      tags:
+      - Signin/Signup
+  /api/userUpdate:
+    put:
+      description: 使用者資訊更新
+      operationId: "7"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: pwd
+        in: formData
+        name: pwd
+        required: true
+        type: string
+      - description: fullname
+        in: formData
+        name: fullname
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: userUpdate
+      tags:
+      - userUpdate
+  /api/userUpdateFullname:
+    patch:
+      description: 使用者fullname更新
+      operationId: "8"
+      parameters:
+      - description: Bearer JWT
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: fullname
+        in: formData
+        name: fullname
+        required: true
+        type: string
+      produces:
+      - text/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: userUpdateFullname
+      tags:
+      - userUpdate
+swagger: "2.0"
