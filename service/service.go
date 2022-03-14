@@ -31,8 +31,8 @@ func DbConnect(Dbname string) (db *gorm.DB) {
 	//配置MySQL
 	username := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
-	//host := "postgres"
-	host := "localhost"
+	host := "postgres"
+	//host := "localhost"
 	port := 5432
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d sslmode=disable TimeZone=Asia/Shanghai", host, username, password, Dbname, port)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
